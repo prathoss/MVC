@@ -1,0 +1,11 @@
+D:\UnicornCollege\CS\MVC\ASPNET2\bin\Debug\netcoreapp2.0\MVC.deps.json
+D:\UnicornCollege\CS\MVC\ASPNET2\bin\Debug\netcoreapp2.0\MVC.runtimeconfig.json
+D:\UnicornCollege\CS\MVC\ASPNET2\bin\Debug\netcoreapp2.0\MVC.runtimeconfig.dev.json
+D:\UnicornCollege\CS\MVC\ASPNET2\bin\Debug\netcoreapp2.0\MVC.dll
+D:\UnicornCollege\CS\MVC\ASPNET2\bin\Debug\netcoreapp2.0\MVC.pdb
+D:\UnicornCollege\CS\MVC\ASPNET2\obj\Debug\netcoreapp2.0\MVC.csprojResolveAssemblyReference.cache
+D:\UnicornCollege\CS\MVC\ASPNET2\obj\Debug\netcoreapp2.0\MVC.csproj.CoreCompileInputs.cache
+D:\UnicornCollege\CS\MVC\ASPNET2\obj\Debug\netcoreapp2.0\MVC.AssemblyInfoInputs.cache
+D:\UnicornCollege\CS\MVC\ASPNET2\obj\Debug\netcoreapp2.0\MVC.AssemblyInfo.cs
+D:\UnicornCollege\CS\MVC\ASPNET2\obj\Debug\netcoreapp2.0\MVC.dll
+D:\UnicornCollege\CS\MVC\ASPNET2\obj\Debug\netcoreapp2.0\MVC.pdb
