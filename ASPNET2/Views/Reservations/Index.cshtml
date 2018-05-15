@@ -1,0 +1,73 @@
+﻿@model IEnumerable<MVC.Models.Reservation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomersName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomersLastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomersEmail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomersPhone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomersNote)
+                </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomersName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomersLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomersEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomersPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomersNote)
+            </td>
+            <td><a asp-action="Edit" asp-route-id="@item.Id">Edit</a></td>
+            <td><a asp-action="Details" asp-route-id="@item.Id">Details</a></td>
+            <td><a asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

@@ -31,13 +31,14 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @(item.Description.Length > 200 ? item.Description.Substring(0, 197) + "..." : item.Description)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.OpeningAt)

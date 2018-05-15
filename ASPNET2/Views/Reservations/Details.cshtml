@@ -1,0 +1,63 @@
+﻿@model MVC.Models.Reservation
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+<div>
+    <h4>Reservation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomersName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustomersName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomersLastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustomersLastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomersEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustomersEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomersPhone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustomersPhone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomersNote)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustomersNote)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+</html>

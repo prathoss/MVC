@@ -12,22 +12,22 @@ using MVC.Models;
 
 namespace MVC.Controllers
 {
-    public class RoomsController : Controller
+    public class ReservationsController : Controller
     {
         private readonly DBModel _context;
 
-        public RoomsController(DBModel context)
+        public ReservationsController(DBModel context)
         {
             _context = context;
         }
 
-        // GET: Rooms
+        // GET: Reservations
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Rooms.ToListAsync());
+            return View(await _context.Reservations.ToListAsync());
         }
 
-        // GET: Rooms/Details/5
+        // GET: Reservations/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -35,39 +35,39 @@ namespace MVC.Controllers
                 return NotFound();
             }
 
-            var room = await _context.Rooms
+            var reservation = await _context.Reservations
                 .SingleOrDefaultAsync(m => m.Id == id);
-            if (room == null)
+            if (reservation == null)
             {
                 return NotFound();
             }
 
-            return View(room);
+            return View(reservation);
         }
 
-        // GET: Rooms/Create
+        // GET: Reservations/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Rooms/Create
+        // POST: Reservations/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,OpeningAt,ClosingAt")] Room room)
+        public async Task<IActionResult> Create([Bind("Id,Date,CustomersName,CustomersLastName,CustomersEmail,CustomersPhone,CustomersNote")] Reservation reservation)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(room);
+                _context.Add(reservation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(room);
+            return View(reservation);
         }
 
-        // GET: Rooms/Edit/5
+        // GET: Reservations/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -75,22 +75,22 @@ namespace MVC.Controllers
                 return NotFound();
             }
 
-            var room = await _context.Rooms.SingleOrDefaultAsync(m => m.Id == id);
-            if (room == null)
+            var reservation = await _context.Reservations.SingleOrDefaultAsync(m => m.Id == id);
+            if (reservation == null)
             {
                 return NotFound();
             }
-            return View(room);
+            return View(reservation);
         }
 
-        // POST: Rooms/Edit/5
+        // POST: Reservations/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,OpeningAt,ClosingAt")] Room room)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Date,CustomersName,CustomersLastName,CustomersEmail,CustomersPhone,CustomersNote")] Reservation reservation)
         {
-            if (id != room.Id)
+            if (id != reservation.Id)
             {
                 return NotFound();
             }
@@ -99,12 +99,12 @@ namespace MVC.Controllers
             {
                 try
                 {
-                    _context.Update(room);
+                    _context.Update(reservation);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!RoomExists(room.Id))
+                    if (!ReservationExists(reservation.Id))
                     {
                         return NotFound();
                     }
@@ -115,10 +115,10 @@ namespace MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(room);
+            return View(reservation);
         }
 
-        // GET: Rooms/Delete/5
+        // GET: Reservations/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -126,30 +126,30 @@ namespace MVC.Controllers
                 return NotFound();
             }
 
-            var room = await _context.Rooms
+            var reservation = await _context.Reservations
                 .SingleOrDefaultAsync(m => m.Id == id);
-            if (room == null)
+            if (reservation == null)
             {
                 return NotFound();
             }
 
-            return View(room);
+            return View(reservation);
         }
 
-        // POST: Rooms/Delete/5
+        // POST: Reservations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var room = await _context.Rooms.SingleOrDefaultAsync(m => m.Id == id);
-            _context.Rooms.Remove(room);
+            var reservation = await _context.Reservations.SingleOrDefaultAsync(m => m.Id == id);
+            _context.Reservations.Remove(reservation);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool RoomExists(int id)
+        private bool ReservationExists(int id)
         {
-            return _context.Rooms.Any(e => e.Id == id);
+            return _context.Reservations.Any(e => e.Id == id);
         }
 
         public IActionResult Error()

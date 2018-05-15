@@ -14,5 +14,11 @@ namespace MVC.Data
         { }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Reservation>().ToTable("Reservations");
+            modelBuilder.Entity<Room>().ToTable("Rooms");
+        }
     }
 }

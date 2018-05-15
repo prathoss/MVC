@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MVC.Models
 {
     public class Room
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [StringLength(50), Required()]
+        [StringLength(50), Required(ErrorMessage = "The column Name has too many characters.")]
         public string Name { get; set; }
-        [StringLength(500), Required()]
+        [StringLength(500), Required(ErrorMessage = "The column Description has too many characters.")]
         public string Description { get; set; }
+        [Required()]
         public int OpeningAt { get; set; }
+        [Required()]
         public int ClosingAt { get; set; }
 
         List<Reservation> Reservations { get; set; }
