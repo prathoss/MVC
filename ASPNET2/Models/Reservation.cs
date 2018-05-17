@@ -14,15 +14,15 @@ namespace MVC.Models
         [Required()]
         public Room Room { get; set; }
         public DateTime Date { get; set; }
-        [StringLength(50), Required()]
+        [StringLength(50, ErrorMessage = "Wrong number of characters", MinimumLength = 1), Required()]
         public string CustomersName { get; set; }
-        [StringLength(50), Required()]
+        [StringLength(50, ErrorMessage = "Wrong number of characters", MinimumLength = 1), Required()]
         public string CustomersLastName { get; set; }
         [Required()]
         public string CustomersEmail { get; set; }
         [Required()]
         public string CustomersPhone { get; set; }
-        [StringLength(500)]
+        [StringLength(500, ErrorMessage = "Wrong number of characters", MinimumLength = 0)]
         public string CustomersNote { get; set; }
     }
 }

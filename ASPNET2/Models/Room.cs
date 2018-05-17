@@ -11,9 +11,9 @@ namespace MVC.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [StringLength(50), Required(ErrorMessage = "The column Name has too many characters.")]
+        [StringLength(50, ErrorMessage = "Wrong number of characters", MinimumLength = 1), Required()]
         public string Name { get; set; }
-        [StringLength(500), Required(ErrorMessage = "The column Description has too many characters.")]
+        [StringLength(500, ErrorMessage = "Wrong number of characters", MinimumLength = 50), Required()]
         public string Description { get; set; }
         [Required()]
         public int OpeningAt { get; set; }

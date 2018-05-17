@@ -46,9 +46,9 @@ namespace MVC.Controllers
         }
 
         // GET: Reservations/Create
-        public IActionResult Create()
+        public IActionResult Create(Room room)
         {
-            return View();
+            return View(room);
         }
 
         // POST: Reservations/Create
