@@ -12,6 +12,9 @@ namespace MVC.Data
         public DBModel(DbContextOptions<DBModel> options)
             : base(options)
         { }
+
+        public DBModel() : base()
+        { }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
 

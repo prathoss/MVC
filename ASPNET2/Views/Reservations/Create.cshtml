@@ -10,10 +10,47 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Create</title>
+    <script>
+
+        function deleteHoursChilds() {
+            var hours = document.getElementById("Hours");
+            while (hours.firstChild) {
+                hours.removeChild(hours.firstChild);
+            }
+        }
+        function OnCalendarChange(id) {
+            var date = document.getElementById("Date").value.split("-");
+            if (date[0] == "") {
+                deleteHoursChilds();
+                return;
+            }
+            var y = date[0];
+            var m = date[1];
+            var d = date[2];
+            $.ajax({
+                type: "GET",
+                data: {roomId: id, year: y, month: m, day: d},
+                url: "/Reservations/FreeHours",
+                contentType: "application/json",
+                dataType: "json",
+                success: function (response) {
+                    var hours = document.getElementById("Hours");
+                    deleteHoursChilds();
+                    $.each(response, function (i, item) {
+                        var $span = $('<span>').append(item + " - " + (item + 1)).addClass("time-interval").appendTo(hours);
+                    });
+                },
+                failure: function (response) {
+                    alert("Failed to load data!");
+                }
+            });
+        }
+    </script>
 </head>
 <body>
 
-<h4>Reservation</h4>
+<h4>Booking for room: @ViewBag.Room.Name</h4>
+<b>Room description:</b> @ViewBag.Room.Description
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -21,33 +58,10 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Date" class="control-label"></label>
-                <input asp-for="Date" class="form-control" />
+                <input asp-for="Date" type="date" class="form-control" onchange="OnCalendarChange(@ViewBag.Room.Id)"/>
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CustomersName" class="control-label"></label>
-                <input asp-for="CustomersName" class="form-control" />
-                <span asp-validation-for="CustomersName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustomersLastName" class="control-label"></label>
-                <input asp-for="CustomersLastName" class="form-control" />
-                <span asp-validation-for="CustomersLastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustomersEmail" class="control-label"></label>
-                <input asp-for="CustomersEmail" class="form-control" />
-                <span asp-validation-for="CustomersEmail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustomersPhone" class="control-label"></label>
-                <input asp-for="CustomersPhone" class="form-control" />
-                <span asp-validation-for="CustomersPhone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustomersNote" class="control-label"></label>
-                <input asp-for="CustomersNote" class="form-control" />
-                <span asp-validation-for="CustomersNote" class="text-danger"></span>
+            <div id="Hours">
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />

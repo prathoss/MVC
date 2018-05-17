@@ -25,9 +25,6 @@
                     @Html.DisplayNameFor(model => model.ClosingAt)
                 </th>
                 <th></th>
-                <th></th>
-                <th></th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -47,7 +44,7 @@
                 @Html.DisplayFor(modelItem => item.ClosingAt)
             </td>
             <td>
-                <a asp-action="Create" asp-controller="Reservations">Book now!</a>
+                <a asp-action="Create" asp-route-roomId="@(item.Id)" asp-controller="Reservations">Book now!</a>
             </td>
         </tr>
 }

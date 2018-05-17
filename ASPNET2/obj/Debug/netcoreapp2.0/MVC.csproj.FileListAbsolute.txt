@@ -9,3 +9,14 @@ D:\UnicornCollege\CS\MVC\ASPNET2\obj\Debug\netcoreapp2.0\MVC.AssemblyInfoInputs.
 D:\UnicornCollege\CS\MVC\ASPNET2\obj\Debug\netcoreapp2.0\MVC.AssemblyInfo.cs
 D:\UnicornCollege\CS\MVC\ASPNET2\obj\Debug\netcoreapp2.0\MVC.dll
 D:\UnicornCollege\CS\MVC\ASPNET2\obj\Debug\netcoreapp2.0\MVC.pdb
+D:\UCL\CS\MVC\ASPNET2\obj\Debug\netcoreapp2.0\MVC.csprojAssemblyReference.cache
+D:\UCL\CS\MVC\ASPNET2\obj\Debug\netcoreapp2.0\MVC.csproj.CoreCompileInputs.cache
+D:\UCL\CS\MVC\ASPNET2\obj\Debug\netcoreapp2.0\MVC.AssemblyInfoInputs.cache
+D:\UCL\CS\MVC\ASPNET2\obj\Debug\netcoreapp2.0\MVC.AssemblyInfo.cs
+D:\UCL\CS\MVC\ASPNET2\obj\Debug\netcoreapp2.0\MVC.dll
+D:\UCL\CS\MVC\ASPNET2\obj\Debug\netcoreapp2.0\MVC.pdb
+D:\UCL\CS\MVC\ASPNET2\bin\Debug\netcoreapp2.0\MVC.deps.json
+D:\UCL\CS\MVC\ASPNET2\bin\Debug\netcoreapp2.0\MVC.runtimeconfig.json
+D:\UCL\CS\MVC\ASPNET2\bin\Debug\netcoreapp2.0\MVC.runtimeconfig.dev.json
+D:\UCL\CS\MVC\ASPNET2\bin\Debug\netcoreapp2.0\MVC.dll
+D:\UCL\CS\MVC\ASPNET2\bin\Debug\netcoreapp2.0\MVC.pdb

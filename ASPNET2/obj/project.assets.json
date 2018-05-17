@@ -13128,26 +13128,23 @@
   },
   "packageFolders": {
     "C:\\Users\\mbrad\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\UnicornCollege\\CS\\MVC\\ASPNET2\\MVC.csproj",
+      "projectUniqueName": "D:\\UCL\\CS\\MVC\\ASPNET2\\MVC.csproj",
       "projectName": "MVC",
-      "projectPath": "D:\\UnicornCollege\\CS\\MVC\\ASPNET2\\MVC.csproj",
+      "projectPath": "D:\\UCL\\CS\\MVC\\ASPNET2\\MVC.csproj",
       "packagesPath": "C:\\Users\\mbrad\\.nuget\\packages\\",
-      "outputPath": "D:\\UnicornCollege\\CS\\MVC\\ASPNET2\\obj\\",
+      "outputPath": "D:\\UCL\\CS\\MVC\\ASPNET2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\mbrad\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"

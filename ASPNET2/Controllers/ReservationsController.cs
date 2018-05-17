@@ -46,9 +46,19 @@ namespace MVC.Controllers
         }
 
         // GET: Reservations/Create
-        public IActionResult Create(Room room)
+        public IActionResult Create(string roomId)
         {
-            return View(room);
+            ViewBag.Room = _context.Rooms.Find(Int32.Parse(roomId));
+            return View();
+        }
+
+        public JsonResult FreeHours()
+        {
+            int roomId = Int32.Parse(HttpContext.Request.Query["roomId"].ToString());
+            int year = Int32.Parse(HttpContext.Request.Query["year"].ToString());
+            int month = Int32.Parse(HttpContext.Request.Query["month"].ToString());
+            int day = Int32.Parse(HttpContext.Request.Query["day"].ToString());
+            return new JsonResult(_context.Rooms.Find(roomId).GetFreeHours(year, month, day));
         }
 
         // POST: Reservations/Create
