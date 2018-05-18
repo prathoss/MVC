@@ -3,9 +3,21 @@
     padding-bottom: 20px;
 }
 
-.time-interval{
+.time-interval {
     width: 25%;
     border: 1px solid black;
+    white-space: nowrap;
+    margin: 10px;
+}
+
+#calendar-form {
+    width: 50%;
+    float: left;
+}
+
+#Hours{
+    width: 50%;
+    float: right;
 }
 
 /* Wrapping element */

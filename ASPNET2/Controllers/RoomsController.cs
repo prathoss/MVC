@@ -9,24 +9,26 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVC.Data;
 using MVC.Models;
+using MVC.Services;
 
 namespace MVC.Controllers
 {
     public class RoomsController : Controller
     {
-        private readonly DBModel _context;
+        IRoomService _roomService;
 
-        public RoomsController(DBModel context)
+        public RoomsController(IRoomService roomService)
         {
-            _context = context;
+            _roomService = roomService ;
         }
 
         // GET: Rooms
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Rooms.ToListAsync());
+            return View(await _roomService.GetAll().ToListAsync());
         }
 
+        /*
         // GET: Rooms/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -156,5 +158,6 @@ namespace MVC.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        */
     }
 }

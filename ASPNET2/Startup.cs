@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MVC.Data;
 using Microsoft.EntityFrameworkCore;
+using MVC.Services;
 
 namespace ASPNET2
 {
@@ -24,6 +25,8 @@ namespace ASPNET2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DBModel>(options => options.UseSqlServer(Configuration.GetConnectionString("Database")));
+            services.AddTransient<IReservationService, ReservationService>();
+            services.AddTransient<IRoomService, RoomService>();
             services.AddMvc();
         }
 

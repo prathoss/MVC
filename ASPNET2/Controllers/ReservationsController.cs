@@ -9,11 +9,33 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVC.Data;
 using MVC.Models;
+using MVC.Services;
 
 namespace MVC.Controllers
 {
     public class ReservationsController : Controller
     {
+        IReservationService _reservationService;
+        IRoomService _roomService;
+
+        public ReservationsController(IReservationService reservationService, IRoomService roomService)
+        {
+            _reservationService = reservationService;
+            _roomService = roomService;
+        }
+
+        public IActionResult Create(int roomId)
+        {
+            ViewBag.Room = _roomService.GetById(roomId);
+            return View();
+        }
+
+        public JsonResult FreeHours(int roomId, int year, int month, int day)
+        {
+            return new JsonResult(_roomService.GetFreeHours(roomId, year, month, day));
+        }
+
+        /*
         private readonly DBModel _context;
 
         public ReservationsController(DBModel context)
@@ -52,13 +74,11 @@ namespace MVC.Controllers
             return View();
         }
 
-        public JsonResult FreeHours()
+        public JsonResult FreeHours(int roomId, int year, int month, int day)
         {
-            int roomId = Int32.Parse(HttpContext.Request.Query["roomId"].ToString());
-            int year = Int32.Parse(HttpContext.Request.Query["year"].ToString());
-            int month = Int32.Parse(HttpContext.Request.Query["month"].ToString());
-            int day = Int32.Parse(HttpContext.Request.Query["day"].ToString());
-            return new JsonResult(_context.Rooms.Find(roomId).GetFreeHours(year, month, day));
+            Room room = _context.Rooms.Find(roomId);
+            room.Reservations = _context.Reservations.Where(r => r.Room == room).ToList();
+            return new JsonResult(room.GetFreeHours(year, month, day));
         }
 
         // POST: Reservations/Create
@@ -166,5 +186,6 @@ namespace MVC.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        */
     }
 }

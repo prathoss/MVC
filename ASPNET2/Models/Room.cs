@@ -22,21 +22,7 @@ namespace MVC.Models
         [Required()]
         public int ClosingAt { get; set; }
 
-        List<Reservation> Reservations { get; set; }
-
-        public int[] GetFreeHours(int year, int month, int day)
-        {
-            List<int> freeHours = new List<int>();
-            for(int i = OpeningAt; i <= ClosingAt - 1; i++) freeHours.Add(i);
-            if (Reservations != null)
-            {
-                foreach (Reservation reservation in Reservations.Where(r => r.Date.Date == new DateTime(year, month, day)))
-                {
-                    if (freeHours.Contains(reservation.Date.Hour)) freeHours.Remove(reservation.Date.Hour);
-                }
-            }
-            return freeHours.ToArray();
-        }
+        public List<Reservation> Reservations { get; set; }
     }
 }
 
