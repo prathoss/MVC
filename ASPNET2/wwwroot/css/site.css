@@ -15,9 +15,14 @@
     float: left;
 }
 
-#Hours{
+#hours{
     width: 50%;
+    height: 123px;
     float: right;
+}
+
+#selected{
+    background-color: green;
 }
 
 /* Wrapping element */

@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Create";
+    ViewBag.Hour = 0;
 }
 
 <!DOCTYPE html>
@@ -10,41 +11,8 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Create</title>
-    <script>
-
-        function deleteHoursChilds() {
-            var hours = document.getElementById("Hours");
-            while (hours.firstChild) {
-                hours.removeChild(hours.firstChild);
-            }
-        }
-        function OnCalendarChange(id) {
-            var date = document.getElementById("Date").value.split("-");
-            if (date[0] == "") {
-                deleteHoursChilds();
-                return;
-            }
-            var y = date[0];
-            var m = date[1];
-            var d = date[2];
-            $.ajax({
-                type: "GET",
-                data: {roomId: id, year: y, month: m, day: d},
-                url: "/Reservations/FreeHours",
-                contentType: "application/json",
-                dataType: "json",
-                success: function (response) {
-                    var hours = document.getElementById("Hours");
-                    deleteHoursChilds();
-                    $.each(response, function (i, item) {
-                        var $span = $('<span>').append(item + " - " + (item + 1)).addClass("time-interval").appendTo(hours);
-                    });
-                },
-                failure: function (response) {
-                    alert("Failed to load data!");
-                }
-            });
-        }
+    <script type="text/javascript">
+        
     </script>
 </head>
 <body>
@@ -58,15 +26,15 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Date" class="control-label"></label>
-                <input asp-for="Date" type="date" class="form-control" onchange="OnCalendarChange(@ViewBag.Room.Id)" />
+                <input asp-for="Date" type="date" class="form-control" onchange="onCalendarChange(@ViewBag.Room.Id)" />
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Next" asp-action="CustomerDetails" asp-route-roomId="@ViewBag.Room.Id" asp-route-hour="0" id="submit" class="btn btn-default" disabled="disabled" />
             </div>
         </form>
     </div>
-    <div id="Hours" class="col-md-4">
+    <div id="hours" class="col-md-4">
     </div>
 </div>
 

@@ -1,0 +1,55 @@
+﻿@model MVC.Models.Reservation
+
+@{
+    ViewData["Title"] = "CustomerDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customer details</h2>
+
+Booking room: @Model.Room.Name on @(Model.Date.ToString("dd.MM.yyyy")) @(Model.Date.ToString("H:mm")) - @(Model.Date.AddHours(1).ToString("H:mm"))
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CustomerDetails">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="CustomersName" class="control-label"></label>
+                <input asp-for="CustomersName" class="form-control" />
+                <span asp-validation-for="CustomersName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomersLastName" class="control-label"></label>
+                <input asp-for="CustomersLastName" class="form-control" />
+                <span asp-validation-for="CustomersLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomersEmail" class="control-label"></label>
+                <input asp-for="CustomersEmail" class="form-control" />
+                <span asp-validation-for="CustomersEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomersPhone" class="control-label"></label>
+                <input asp-for="CustomersPhone" class="form-control" />
+                <span asp-validation-for="CustomersPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomersNote" class="control-label"></label>
+                <input asp-for="CustomersNote" class="form-control" />
+                <span asp-validation-for="CustomersNote" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Rooms">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

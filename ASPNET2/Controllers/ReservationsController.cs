@@ -29,10 +29,21 @@ namespace MVC.Controllers
             ViewBag.Room = _roomService.GetById(roomId);
             return View();
         }
+        [HttpPatch]
+        public IActionResult CustomerDetails(DateTime date, int roomId, int hour)
+        {
+            Reservation reservation = new Reservation() { Date = date.AddHours(hour), Room = _roomService.GetById(roomId) };
+            return View(reservation);
+        }
 
         public JsonResult FreeHours(int roomId, int year, int month, int day)
         {
             return new JsonResult(_roomService.GetFreeHours(roomId, year, month, day));
+        }
+
+        public void SetViewBagHour(int hour)
+        {
+            ViewBag.Hour = hour;
         }
 
         /*
