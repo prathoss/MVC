@@ -1,0 +1,15 @@
+﻿@model MVC.Models.Reservation
+@{
+    ViewData["Title"] = "Created";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Created</h2>
+
+<h3>Reservation</h3>
+Room: @Model.Room.Name <br />
+Time: @(Model.Date.ToString("dd.MM.yyyy")) @(Model.Date.ToString("H:mm")) - @(Model.Date.AddHours(1).ToString("H:mm")) <br />
+For: @Model.CustomersName @Model.CustomersLastName <br />
+<div>
+    <a asp-action="Index" asp-controller="Rooms">Back to List</a>
+</div>

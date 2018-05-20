@@ -11,18 +11,17 @@ namespace MVC.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Required()]
         public Room Room { get; set; }
         public DateTime Date { get; set; }
-        [StringLength(50, ErrorMessage = "Wrong number of characters", MinimumLength = 1), Required()]
+        [StringLength(50, ErrorMessage = "Wrong number of characters. Minimum: 1, Maximum: 50", MinimumLength = 1), Required(), Display(Name = "Name")]
         public string CustomersName { get; set; }
-        [StringLength(50, ErrorMessage = "Wrong number of characters", MinimumLength = 1), Required()]
+        [StringLength(50, ErrorMessage = "Wrong number of characters. Minimum: 1, Maximum: 50", MinimumLength = 1), Required(), Display(Name = "Last name")]
         public string CustomersLastName { get; set; }
-        [Required()]
+        [Required(), EmailAddress, Display(Name = "Email address")]
         public string CustomersEmail { get; set; }
-        [Required()]
+        [Required(), RegularExpression(@"^\+([0-9]{3} ){3}[0-9]{3}$", ErrorMessage = "Telephone number must be in format: +XXX XXX XXX XXX"), Display(Name = "Phone number")]
         public string CustomersPhone { get; set; }
-        [StringLength(500, ErrorMessage = "Wrong number of characters", MinimumLength = 0)]
+        [StringLength(500, ErrorMessage = "Wrong number of characters. Maximum: 500", MinimumLength = 0), Display(Name = "Note")]
         public string CustomersNote { get; set; }
     }
 }

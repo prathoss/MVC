@@ -9,5 +9,6 @@ namespace MVC.Services
     public interface IReservationService
     {
         Reservation GetById(int id);
+        int? Save(Reservation reservation);
     }
 }

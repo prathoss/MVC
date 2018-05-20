@@ -1,4 +1,6 @@
 ﻿// Write your JavaScript code.
+
+// Selects time which was clicked and put the time to route
 function select() {
     if(document.getElementById("selected")) {
         jQuery("#selected").attr("id", "");
@@ -9,17 +11,16 @@ function select() {
     formaction[formaction.length - 1] = $(this).attr("hourStart");
     jQuery("#submit").attr("formaction", formaction.join('='));
 }
-function getSelectedHour() {
-    return document.getElementById("selected").innerHTML.split(' - ')[0];
-}
 function deleteHoursChilds() {
     var hours = document.getElementById("hours");
     while (hours.firstChild) {
         hours.removeChild(hours.firstChild);
     }
 }
+// With ajax get all avilable hour intervals
 function onCalendarChange(id) {
     var date = document.getElementById("Date").value.split("-");
+    document.getElementById("submit").disabled = true;
     if (date[0] == "") {
         deleteHoursChilds();
         return;

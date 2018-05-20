@@ -12,7 +12,6 @@ Booking room: @Model.Room.Name on @(Model.Date.ToString("dd.MM.yyyy")) @(Model.D
 <div class="row">
     <div class="col-md-4">
         <form asp-action="CustomerDetails">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="CustomersName" class="control-label"></label>
@@ -40,14 +39,14 @@ Booking room: @Model.Room.Name on @(Model.Date.ToString("dd.MM.yyyy")) @(Model.D
                 <span asp-validation-for="CustomersNote" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input asp-route-date="@Model.Date" asp-route-roomId="@Model.Room.Id" type="submit" value="Save" class="btn btn-default" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index" asp-controller="Rooms">Back to List</a>
+    <a asp-action="Index" asp-controller="Rooms" >Back to List</a>
 </div>
 
 @section Scripts {

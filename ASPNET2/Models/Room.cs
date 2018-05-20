@@ -13,13 +13,13 @@ namespace MVC.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [StringLength(50, ErrorMessage = "Wrong number of characters", MinimumLength = 1), Required()]
+        [StringLength(50, ErrorMessage = "Wrong number of characters. Minimum: 1, Maximum: 50", MinimumLength = 1), Required()]
         public string Name { get; set; }
-        [StringLength(500, ErrorMessage = "Wrong number of characters", MinimumLength = 50), Required()]
+        [StringLength(500, ErrorMessage = "Wrong number of characters. Minimum: 50, Maximum: 500", MinimumLength = 50), Required()]
         public string Description { get; set; }
-        [Required()]
+        [Required(), Display(Name = "Opening at")]
         public int OpeningAt { get; set; }
-        [Required()]
+        [Required(), Display(Name = "Closing at")]
         public int ClosingAt { get; set; }
 
         public List<Reservation> Reservations { get; set; }
