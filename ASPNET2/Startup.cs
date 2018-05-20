@@ -44,17 +44,14 @@ namespace ASPNET2
             }
 
             app.UseStaticFiles();
-
-            //app.UseMvcWithDefaultRoute();
-
             
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Rooms}/{action=Index}/{id?}");
+                    template: "{controller=Rooms}/{action=Index}");
             });
-            
+
         }
     }
 }

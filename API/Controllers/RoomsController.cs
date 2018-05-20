@@ -9,25 +9,9 @@ using Newtonsoft.Json;
 
 namespace API.Controllers
 {
+    [Route("api/[controller]")]
     public class RoomsController : Controller
     {
-        IRoomService _service;
-
-        public RoomsController(IRoomService service)
-        {
-            _service = service;
-        }
-
-        [HttpGet("{date}")]
-        public string Get(DateTime date)
-        {
-            return JsonConvert.SerializeObject(_service.GetRoomsWithFreeHours(date), Formatting.Indented);
-        }
-
-        [HttpGet("{id, date}")]
-        public string Get(int id, DateTime date)
-        {
-            return JsonConvert.SerializeObject(_service.GetRoomWithFreeHours(id, date));
-        }
+        
     }
 }

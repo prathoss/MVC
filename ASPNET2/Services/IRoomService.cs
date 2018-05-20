@@ -14,7 +14,7 @@ namespace MVC.Services
         DbSet<Room> GetAll();
         int[] GetFreeHours(int id, int year, int month, int day);
         Room GetRoomWithReservations(int id);
-        Dictionary<Room, int[]> GetRoomWithFreeHours(int id, DateTime date);
-        Dictionary<Room, int[]> GetRoomsWithFreeHours(DateTime date);
+        Dictionary<Room, int[]> GetRoomWithFreeHours(int id, int year, int month, int day);
+        Dictionary<Room, int[]> GetRoomsWithFreeHours(int year, int month, int day);
     }
 }
