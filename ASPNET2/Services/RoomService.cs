@@ -45,5 +45,24 @@ namespace MVC.Services
             room.Reservations = _context.Reservations.Where(r => r.Room == room).ToList();
             return room;
         }
+
+        public Dictionary<Room, int[]> GetRoomsWithFreeHours(DateTime date)
+        {
+            Dictionary<Room, int[]> roomsWithFreeHours = new Dictionary<Room, int[]>();
+            foreach(Room room in _context.Rooms)
+            {
+                int[] freeHours = GetFreeHours(room.Id, date.Year, date.Month, date.Day);
+                if (freeHours.Any()) roomsWithFreeHours.Add(room, freeHours);
+            }
+            return roomsWithFreeHours;
+        }
+
+        public Dictionary<Room, int[]> GetRoomWithFreeHours(int id, DateTime date)
+        {
+            Dictionary<Room, int[]> roomWithFreeHours = new Dictionary<Room, int[]>();
+            Room room = GetById(id);
+            roomWithFreeHours.Add(room, GetFreeHours(room.Id, date.Year, date.Month, date.Day));
+            return roomWithFreeHours;
+        }
     }
 }

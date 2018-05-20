@@ -1,0 +1,14 @@
+D:\UCL\CS\MVC\API\bin\Debug\netcoreapp2.0\API.deps.json
+D:\UCL\CS\MVC\API\bin\Debug\netcoreapp2.0\API.runtimeconfig.json
+D:\UCL\CS\MVC\API\bin\Debug\netcoreapp2.0\API.runtimeconfig.dev.json
+D:\UCL\CS\MVC\API\bin\Debug\netcoreapp2.0\API.dll
+D:\UCL\CS\MVC\API\bin\Debug\netcoreapp2.0\API.pdb
+D:\UCL\CS\MVC\API\bin\Debug\netcoreapp2.0\MVC.dll
+D:\UCL\CS\MVC\API\bin\Debug\netcoreapp2.0\MVC.pdb
+D:\UCL\CS\MVC\API\obj\Debug\netcoreapp2.0\API.csprojAssemblyReference.cache
+D:\UCL\CS\MVC\API\obj\Debug\netcoreapp2.0\API.csproj.CoreCompileInputs.cache
+D:\UCL\CS\MVC\API\obj\Debug\netcoreapp2.0\API.AssemblyInfoInputs.cache
+D:\UCL\CS\MVC\API\obj\Debug\netcoreapp2.0\API.AssemblyInfo.cs
+D:\UCL\CS\MVC\API\obj\Debug\netcoreapp2.0\API.csproj.CopyComplete
+D:\UCL\CS\MVC\API\obj\Debug\netcoreapp2.0\API.dll
+D:\UCL\CS\MVC\API\obj\Debug\netcoreapp2.0\API.pdb

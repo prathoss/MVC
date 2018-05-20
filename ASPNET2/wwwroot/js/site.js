@@ -37,6 +37,9 @@ function onCalendarChange(id) {
         success: function (response) {
             var hours = document.getElementById("hours");
             deleteHoursChilds();
+            if (response.length == 0) {
+                hours.append("The room is fully booked for this day. Choose a different day.")
+            }
             $.each(response, function (i, item) {
                 var button = document.createElement('button');
                 button.innerHTML = item + " - " + (item + 1);
